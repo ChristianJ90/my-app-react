@@ -1,6 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar,Nav,NavDropdown,Container} from 'react-bootstrap';
+import CartWidget from './CartWidget';
+import ItemListContainer from './ItemListContainer';
 
 export default function NavbarReact() {
 return(
@@ -22,8 +24,8 @@ return(
     </Nav>
     <Nav>
       <Nav.Link href="#deets">More deets</Nav.Link>
-      <Nav.Link eventKey={2} href="#memes">
-        Dank memes
+      <Nav.Link eventKey={2} href="#memes"><CartWidget/>
+      <ItemListContainer/>
       </Nav.Link>
     </Nav>
   </Navbar.Collapse>
