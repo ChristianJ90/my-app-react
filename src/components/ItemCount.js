@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-export default function Item() {
+export default function ItemCount() {
   const [count, setCount] = React.useState(1);
   const [invisible, setInvisible] = React.useState(false);
 

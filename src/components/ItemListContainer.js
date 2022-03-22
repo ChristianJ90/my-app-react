@@ -1,7 +1,7 @@
 import React from "react";
 import ItemCount from "./ItemCount";
 
-export default function Items() {
+export default function ItemListContainer() {
 
     return(
         <div>
