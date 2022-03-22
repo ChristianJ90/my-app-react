@@ -1,8 +1,11 @@
 import React from "react";
+import ItemCount from "./ItemCount";
 
-function Items() {
+export default function Items() {
+
     return(
-        <h4>5</h4>
+        <div>
+        <ItemCount/>
+        </div>
     );
 }
-export default Items;
