@@ -25,11 +25,10 @@ export default function MyCart() {
   return (
     <div>
     <IconButton aria-label="cart">
-      <StyledBadge badgeContent={1} color="secondary">
-        <ShoppingCartIcon />
+      <StyledBadge color="secondary">
+        <ShoppingCartIcon/><ItemListContainer/>
       </StyledBadge>
     </IconButton>
-    <ItemListContainer/>
     </div>
   );
 }
