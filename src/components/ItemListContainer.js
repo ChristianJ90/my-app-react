@@ -5,7 +5,16 @@ export default function ItemListContainer() {
 
     return(
         <div>
-        <ItemCount/>
+            <ItemCount>
+                <Item/>
+                <Item/>
+                <Item/>
+                <Item/>
+                <Item/>
+                <Item/>
+                <Item/>
+                <Item/>
+            </ItemCount>
         </div>
     );
 }
