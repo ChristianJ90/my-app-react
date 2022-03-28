@@ -1,21 +1,29 @@
-import React from "react";
-import ItemCount from "./ItemCount";
-import Item from "./Item";
+import React, { useEffect, useState } from "react";
+import ItemList from "./ItemList";
+import { getProduct } from "../Mocks/fakeApi";
 
-export default function ItemListContainer() {
 
-    return(
-        <div>
-            <ItemCount>
-                <Item/>
-                <Item/>
-                <Item/>
-                <Item/>
-                <Item/>
-                <Item/>
-                <Item/>
-                <Item/>
-            </ItemCount>
-        </div>
-    );
-}
+
+const ItemListContainer = (props) => {
+    const [listaProductos, setListaProductos] = useState([])
+    const [cargando, setCargando] = useState(false);
+    
+useEffect(() =>{
+    setCargando(true)
+    getProduct
+    .then((resp) => setListaProductos(resp))
+    .catch((error) => console.log(error))
+    .finally(() => setCargando(false))
+},[])
+
+return(  
+    <div>
+        <h1>{props.Productos}</h1>
+        {cargando ? <p>Cargando....</p> : <ItemList listaProductos = {listaProductos} />
+        }       
+    </div>
+)
+};
+
+export default ItemListContainer
+

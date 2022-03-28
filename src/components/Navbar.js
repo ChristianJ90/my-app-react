@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar,Nav,NavDropdown,Container} from 'react-bootstrap';
 import CartWidget from './CartWidget';
 
@@ -27,5 +26,6 @@ return(
     </Nav>
   </Navbar.Collapse>
   </Container>
-</Navbar>)
+</Navbar>
+)
 };

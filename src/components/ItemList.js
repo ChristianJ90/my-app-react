@@ -1,17 +1,14 @@
 import React from "react";
 import Item from "./Item";
 
-export default function ItemListContainer() {
+const ItemList = ({listaProductos}) => {
     
     return(
-        setTimeout(() => {
-            <div>
-                <Item/>
-                <Item/>
-                <Item/>
-                <Item/>
-                </div>
-        }, 2000)
+        <div className="d-flex flex-wrap">
+            {listaProductos.map((product) => <Item product ={product} key = {product.id} />)}
+        </div>
     );
 };
+
+export default ItemList
 
