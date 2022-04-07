@@ -5,7 +5,7 @@ const product = [
         nombre: 'Rolex', 
         categoria:'Hombre',
         precio: 4999,
-        descripcion:'Lorem ipsum dolor.',
+        descripcion:'Lorem ipsum dolor.',      
     },
     {   id: '02',
         imagen: 'https://picsum.photos/201',
@@ -27,6 +27,7 @@ const product = [
         categoria:'Mujer',
         precio: 4999,
         descripcion:'Lorem ipsum dolor.',
+
     },
     {   id: '05',
         imagen: 'https://picsum.photos/204',

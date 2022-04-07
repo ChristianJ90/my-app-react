@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
-import CartWidget from "./CartWidget";
+import { Card, ListGroupItem, Button, Nav} from 'react-bootstrap';
 import ItemCount from './ItemCount';
+import { Link } from "react-router-dom";
 
 const Item = ({product}) => {
   return (
@@ -17,7 +17,7 @@ const Item = ({product}) => {
    <ListGroupItem>{product.precio}</ListGroupItem>
 
  <Card.Body>
-   <Card.Link>{CartWidget()}</Card.Link>
+   <Nav.Link as={Link} to="/Detalle"><Button className="btn btn-success my-2" >Ver detalles</Button></Nav.Link> 
    <Card.Link>{ItemCount()}</Card.Link>
  </Card.Body>
 </Card></div>

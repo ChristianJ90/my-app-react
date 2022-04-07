@@ -3,7 +3,6 @@ import ItemList from "./ItemList";
 import { getProduct } from "../Mocks/fakeApi";
 
 
-
 const ItemListContainer = (props) => {
     const [listaProductos, setListaProductos] = useState([])
     const [cargando, setCargando] = useState(false);
