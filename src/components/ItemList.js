@@ -5,7 +5,7 @@ const ItemList = ({listaProductos}) => {
     
     return(
         <div className="d-flex flex-wrap">
-            {listaProductos.map((product) => <Item product ={product} key = {product.id} />)}
+            {listaProductos.map((products) => <Item products ={products} key = {products.id} />)}
         </div>
     );
 };
