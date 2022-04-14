@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from './ItemCount'
-import { Button} from 'react-bootstrap';
 
 const ItemDetail =({productDetail}) => {
-  const {imagen, nombre, categoria, descripcion, precio, stock} = productDetail
+  const {id,imagen, nombre, categoria, descripcion, precio, stock} = productDetail
 
+ //{const navigate = useNavigate()handleNavigate =() => {navigate(-1)}}
+  const [cantidad, setCantidad] = useState(1)
+
+  const agregarAlCarrito = (cantidad) => {
+    const itemToAdd = {
+      id,
+      imagen, 
+      nombre, 
+      categoria,
+      descripcion, 
+      precio, 
+      cantidad
+  }
+  console.log(itemToAdd);
+}
+  
   return (
     <div>
       <h2>Detalle de Productos</h2>
@@ -14,10 +29,13 @@ const ItemDetail =({productDetail}) => {
         <p>{descripcion}</p>
         <p>Precio ${precio}</p>
         <small>Stock ${stock}</small>
-        <div>
-        <Button className="btn btn-primary my-2 mx-2" >Agregar al carrito</Button>
-        </div>
-        <ItemCount/>
+
+        <ItemCount
+        max={stock}
+        cantidad={cantidad}
+        setCantidad={setCantidad}
+        onAdd={agregarAlCarrito}
+        />
     </div>
   )
 }

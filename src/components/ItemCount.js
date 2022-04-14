@@ -1,51 +1,27 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Badge from '@mui/material/Badge';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import { Button } from "react-bootstrap"
+import React from "react"
 
-const ItemCount = () => {
-  const [count, setCount] = React.useState(1);
-  const [invisible, setInvisible] = React.useState(false);
-  const max = 10;
 
-  const handleBadgeVisibility = () => {
-    setInvisible(!invisible);  
-  };
+
+const ItemCount = ({max = 10,cantidad ,setCantidad ,onAdd}) => {
+
+  const handleSumar = () => {
+    cantidad < max && setCantidad(cantidad +1)
+  }
+
+  const handleRestar = () => {
+    cantidad > 1 && setCantidad(cantidad -1)
+  }
 
   return (
-    <Box
-      sx={{
-        color: 'action.active',
-        display: 'flex',
-        flexDirection: 'column',
-        '& > *': {
-          marginBottom: 3,
-        },
-        '& .MuiBadge-root': {
-          marginRight: 3,
-        },
-      }}
-    >
       <div>
-        <ButtonGroup>
-          <Button aria-label="reduce" onClick={() => {
-            count > 1 && setCount(count - 1);             
-              }}>
-            <RemoveIcon fontSize="small" />
-          </Button>
-          <Badge className='mx-4 my-3' color="secondary" badgeContent={count + 0}>
-        </Badge>
-          <Button aria-label="increase" onClick={() => {
-           count < max && setCount(count + 1);              
-            }}>
-            <AddIcon fontSize="small" />
-          </Button>
-        </ButtonGroup>
+        <Button variant="outline-primary" onClick={handleRestar} >-</Button>
+        <span className='mx-2' >{cantidad}</span>
+        <Button variant="primary" onClick={handleSumar} >+</Button>
+        <br/>
+        <Button variant="success my-2" onClick={onAdd} >Agreagar al carrito</Button>
+
       </div>
-    </Box>
   );
 }
 export default ItemCount
