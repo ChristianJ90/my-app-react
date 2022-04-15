@@ -3,7 +3,7 @@ import React from "react"
 
 
 
-const ItemCount = ({max = 10,cantidad ,setCantidad ,onAdd}) => {
+const ItemCount = ({max = 10,cantidad,stock ,setCantidad ,onAdd}) => {
 
   const handleSumar = () => {
     cantidad < max && setCantidad(cantidad +1)
@@ -16,7 +16,7 @@ const ItemCount = ({max = 10,cantidad ,setCantidad ,onAdd}) => {
   return (
       <div>
         <Button variant="outline-primary" onClick={handleRestar} >-</Button>
-        <span className='mx-2' >{cantidad}</span>
+        <span className='mx-2' >{cantidad}{stock}</span>
         <Button variant="primary" onClick={handleSumar} >+</Button>
         <br/>
         <Button variant="success my-2" onClick={onAdd} >Agreagar al carrito</Button>

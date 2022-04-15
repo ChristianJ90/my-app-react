@@ -12,7 +12,7 @@ return(
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
       <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-      <Nav.Link as={Link} to="/Productos">Productos</Nav.Link>
+      <Nav.Link as={Link} to="/Categorias/:categorias">Productos</Nav.Link>
       <Nav.Link as={Link} to="/Nosotros">Nosotros</Nav.Link> 
       <Nav.Link as={Link} to="/Contacto">Contacto</Nav.Link> 
     </Nav>

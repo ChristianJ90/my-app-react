@@ -9,7 +9,8 @@ const ItemListContainer = (props) => {
     const [listaProductos, setListaProductos] = useState([])
     const [cargando, setCargando] = useState(false);
 
-    const {categorias} = useParams()
+    const {categoryId} = useParams()
+    console.log(categoryId);
 
     
 useEffect(() =>{
@@ -17,8 +18,11 @@ useEffect(() =>{
 
     getProducts
     .then((resp) => { 
-        setListaProductos(resp.filter((products) => products.categoria === categorias))
+        if (categoryId){
+        setListaProductos(resp.filter((prod) => prod.categoria === categoryId))
+    } else {
         setListaProductos (resp)
+    }
     })
     .catch((error) => {
         console.log(error)
@@ -26,7 +30,7 @@ useEffect(() =>{
     .finally(() => { 
         setCargando(false)
     })
-},[])
+},[categoryId])
 
 return(  
     <div>
