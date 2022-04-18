@@ -1,7 +1,7 @@
 import *as React from 'react';
 import { Link } from "react-router-dom";
 import {Navbar,Nav,Container} from 'react-bootstrap';
-import CartWidget from './CartWidget';
+import CartWidget from '../CartWidget';
 
 export default function NavbarReact() {
 return(
@@ -17,8 +17,7 @@ return(
       <Nav.Link as={Link} to="/Contacto">Contacto</Nav.Link> 
     </Nav>
     <Nav>
-      <Nav.Link eventKey={2} to="/carrito"><CartWidget/>
-      </Nav.Link>
+    <Nav.Link as={Link} to='/MyCart' ><CartWidget/></Nav.Link>
     </Nav>
   </Navbar.Collapse>
   </Container>

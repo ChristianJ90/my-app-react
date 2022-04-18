@@ -6,19 +6,18 @@ import ItemListContainer from './components/ItemListContainer';
 import Nosotros from './components/Nosotros';
 import Contacto from './components/Contacto';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import { MyContext } from './context/MyContext';
 import  Category  from './components/Category';
-
-const product = 'Mis productos'
+import Cart from './components/Cart';
+import { CartProvider } from './context/CartContext';
 
 function App() {
+
+  const product = 'Mis productos'
+  
+
   return (
     <div className="App">
-      
-      <MyContext.Provider value={{
-        usuario: 'Christian', 
-        apellido: 'Barrios'}}>
-
+      <CartProvider>
       <Navbar/>
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
@@ -26,10 +25,11 @@ function App() {
         <Route path="/Categorias/:categoryId" element={<Category />} /> 
         <Route path="/Nosotros" element={<Nosotros />} /> 
         <Route path="/Contacto" element={<Contacto />} />
+        <Route path="/MyCart" element={<Cart />} />
         <Route path="/Detalle/:item" element={<ItemDetailContainer productos = {product}/>} />
         <Route path="*" element={<Navigate to={"/"}/>} /> 
-      </Routes>  
-      </MyContext.Provider> 
+      </Routes> 
+      </CartProvider>  
     </div>
   );
 }

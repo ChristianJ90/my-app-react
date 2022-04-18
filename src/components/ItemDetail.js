@@ -1,14 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext,useState } from 'react'
 import ItemCount from './ItemCount'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Select from './Select'
-
-const options =[
-  {value: 'kg', text: 'Kg' },
-  {value: 'caja', text: 'Caja' },
-]
+import { CartContext } from '../context/CartContext'
 
 const ItemDetail =({productDetail}) => {
+
+  const options =[
+    {value: 'kg', text: 'Kg' },
+    {value: 'caja', text: 'Caja' },
+  ]
+
+  const {cart ,addItem ,isInCart} = useContext(CartContext)
+  console.log(cart);
+
   const {id,imagen, nombre, categoria, descripcion, precio,stock} = productDetail
 
  const navigate = useNavigate()
@@ -17,20 +22,20 @@ const ItemDetail =({productDetail}) => {
   }
 
   const [cantidad, setCantidad] = useState(1)
-  const [color, setColor] = useState('rojo')
+  const [unidad, setCant] = useState('kg')
 
-  const agregarAlCarrito = (cantidad) => {
+  const agregarAlCarrito = () => {
     const itemToAdd = {
       id,
       imagen, 
       nombre, 
       categoria,
       descripcion, 
-      color,
+      unidad,
       precio, 
       cantidad
   }
-  console.log(itemToAdd);
+  addItem(itemToAdd)
 }
   
   return (
@@ -42,8 +47,13 @@ const ItemDetail =({productDetail}) => {
         <p>{descripcion}</p>
         <p>Precio ${precio}</p>
         <small>Stock: {stock}</small>
-        <Select options={options} onSelect={setColor}/><br/><br/>
-        <ItemCount max={stock} cantidad={cantidad} setCantidad={setCantidad} onAdd={agregarAlCarrito}/>
+        <Select options={options} onSelect={setCant}/><br/><br/>
+        {!isInCart(id) ?  <ItemCount max={stock} cantidad={cantidad} setCantidad={setCantidad} onAdd={agregarAlCarrito}/>
+        : <Link to='/MyCart' className='btn btn-success' >Terminar compra</Link>
+
+        }
+       
+
         <br/><br/> 
         <button className="btn btn-outline-success" onClick={ handleNavigate}>Atras</button>
     </div>

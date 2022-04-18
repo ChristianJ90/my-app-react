@@ -1,14 +1,11 @@
-import React, {useContext,useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import { getProducts } from '../mocks/fakeApi'
 import ItemDetail from './ItemDetail'
 import { Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
-import { MyContext } from '../context/MyContext'
+
 
 const ItemDetailContainer = () => {
-const {usuario} = useContext(MyContext)
-console.log(usuario);
-
     const [productDetail, setProductDetail] = useState({})
     const [loading, setLoading] = useState(false)
 
