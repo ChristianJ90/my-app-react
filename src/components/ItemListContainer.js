@@ -3,6 +3,7 @@ import ItemList from "./ItemList";
 import { getProducts } from "../mocks/fakeApi";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import  Carousel  from './Carousel';
 
 
 const ItemListContainer = (props) => {
@@ -35,6 +36,8 @@ useEffect(() =>{
 
 return(  
     <div>
+        <h1>{props.products}</h1>
+        {"/" ?  <ItemList listaProductos = {listaProductos} /> :  <Carousel/>}
         <h1>{props.products}</h1>
         {cargando ? <div><Spinner animation="border" role="status">
         <span className="visually-hidden">Loading...</span>

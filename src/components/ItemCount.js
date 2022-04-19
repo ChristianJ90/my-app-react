@@ -1,8 +1,6 @@
 import { Button } from "react-bootstrap"
 import React from "react"
 
-
-
 const ItemCount = ({max = 10,cantidad,setCantidad ,onAdd}) => {
 
   const handleSumar = () => {
@@ -13,14 +11,14 @@ const ItemCount = ({max = 10,cantidad,setCantidad ,onAdd}) => {
     cantidad > 1 && setCantidad(cantidad -1)
   }
 
+
   return (
       <div>
         <Button variant="outline-primary" onClick={handleRestar} >-</Button>
         <span className='mx-2' >{cantidad}</span>
         <Button variant="primary" onClick={handleSumar} >+</Button>
         <br/>
-        <Button variant="success my-2" onClick={onAdd} >Agreagar al carrito</Button>
-
+        <Button variant="outline-primary my-2" onClick={onAdd} >Agregar al carrito</Button>
       </div>
   );
 }

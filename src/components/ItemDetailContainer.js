@@ -19,13 +19,12 @@ const ItemDetailContainer = () => {
     .finally(() => setLoading(false))
     },[item] )
 
-    console.log(productDetail);
-
   return (
     <div>
         {loading ? <div><Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
+        <span className="visually-hidden">Loading...</span>     
         </Spinner></div> : <ItemDetail productDetail={productDetail}/>}
+       
     </div>
   )
 }

@@ -3,6 +3,7 @@ import ItemCount from './ItemCount'
 import { Link, useNavigate } from 'react-router-dom'
 import Select from './Select'
 import { CartContext } from '../context/CartContext'
+import { Nav } from 'react-bootstrap'
 
 const ItemDetail =({productDetail}) => {
 
@@ -13,7 +14,6 @@ const ItemDetail =({productDetail}) => {
 
   const {cart ,addItem ,isInCart} = useContext(CartContext)
   console.log(cart);
-
   const {id,imagen, nombre, categoria, descripcion, precio,stock} = productDetail
 
  const navigate = useNavigate()
@@ -22,7 +22,7 @@ const ItemDetail =({productDetail}) => {
   }
 
   const [cantidad, setCantidad] = useState(1)
-  const [unidad, setCant] = useState('kg')
+  const [unidad, setUnidad] = useState('kg')
 
   const agregarAlCarrito = () => {
     const itemToAdd = {
@@ -33,7 +33,8 @@ const ItemDetail =({productDetail}) => {
       descripcion, 
       unidad,
       precio, 
-      cantidad
+      cantidad,
+      stock
   }
   addItem(itemToAdd)
 }
@@ -46,14 +47,12 @@ const ItemDetail =({productDetail}) => {
         <h6>{categoria}</h6>
         <p>{descripcion}</p>
         <p>Precio ${precio}</p>
-        <small>Stock: {stock}</small>
-        <Select options={options} onSelect={setCant}/><br/><br/>
-        {!isInCart(id) ?  <ItemCount max={stock} cantidad={cantidad} setCantidad={setCantidad} onAdd={agregarAlCarrito}/>
-        : <Link to='/MyCart' className='btn btn-success' >Terminar compra</Link>
-
-        }
+        <small>Stock: {stock}</small><br/>
+        <Select options={options} onSelect={setUnidad}/><br/><br/>
+        {! isInCart(id) ?  <ItemCount max={stock} cantidad={cantidad} setCantidad={setCantidad} onAdd={agregarAlCarrito}/>
+        :<button className='btn btn-outline-primary'><Nav.Link as={Link} to='/MyCart' >Terminar compra</Nav.Link></button>
+        } 
        
-
         <br/><br/> 
         <button className="btn btn-outline-success" onClick={ handleNavigate}>Atras</button>
     </div>

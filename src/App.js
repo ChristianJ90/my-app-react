@@ -10,6 +10,7 @@ import  Category  from './components/Category';
 import Cart from './components/Cart';
 import { CartProvider } from './context/CartContext';
 
+
 function App() {
 
   const product = 'Mis productos'
@@ -19,10 +20,11 @@ function App() {
     <div className="App">
       <CartProvider>
       <Navbar/>
+     
       <Routes>
-        <Route path="/" element={<ItemListContainer />} />
-        <Route path="/Productos" element={<ItemListContainer />} />
-        <Route path="/Categorias/:categoryId" element={<Category />} /> 
+        <Route path="/" element={<ItemListContainer/>} />
+        <Route path="/Productos" element={<ItemListContainer/>} />
+        <Route path="/Categorias/:categoryId" element={<Category/>} /> 
         <Route path="/Nosotros" element={<Nosotros />} /> 
         <Route path="/Contacto" element={<Contacto />} />
         <Route path="/MyCart" element={<Cart />} />
