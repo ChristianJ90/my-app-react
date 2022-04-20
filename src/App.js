@@ -12,7 +12,7 @@ import { CartProvider } from './context/CartContext';
 
 
 function App() {
-
+  console.log(process.env);
   const product = 'Mis productos'
   
 
