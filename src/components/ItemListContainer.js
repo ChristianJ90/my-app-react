@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
-import { getProducts } from "../mocks/fakeApi";
+import { getProducts } from "../data/data";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import  Carousel  from './Carousel';

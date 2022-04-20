@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react'
-import { getProducts } from '../mocks/fakeApi'
+import { getProducts } from '../data/data'
 import ItemDetail from './ItemDetail'
 import { Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
