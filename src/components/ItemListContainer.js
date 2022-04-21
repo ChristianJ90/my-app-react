@@ -13,6 +13,7 @@ const ItemListContainer = (props) => {
 
     const {categoryId} = useParams()
     console.log(categoryId);
+    
 
     
 useEffect(() =>{
@@ -36,13 +37,14 @@ useEffect(() =>{
 
 return(  
     <div>
-        <h1>{props.products}</h1>
-        {"/" ?  <ItemList listaProductos = {listaProductos} /> :  <Carousel/>}
+        <Carousel/>
+        <div>
         <h1>{props.products}</h1>
         {cargando ? <div><Spinner animation="border" role="status">
         <span className="visually-hidden">Loading...</span>
-        </Spinner></div> : <ItemList listaProductos = {listaProductos} />
-        }       
+        </Spinner></div> : <ItemList listaProductos = {listaProductos} />       
+        }   
+        </div>    
     </div>
 )
 };

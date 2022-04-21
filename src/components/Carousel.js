@@ -7,7 +7,7 @@ const Carousels = () => {
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src="https://picsum.photos/206"
+        src="Productos\americanos.jpg"
         alt="First slide"
       />
       <Carousel.Caption>
@@ -18,7 +18,7 @@ const Carousels = () => {
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src="https://picsum.photos/207"
+        src="Productos\packAsadito.jpg"
         alt="Second slide"
       />
   
@@ -30,7 +30,7 @@ const Carousels = () => {
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src="https://picsum.photos/208"
+        src="Productos\ofertaFiletillos.png"
         alt="Third slide"
       />
   

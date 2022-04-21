@@ -12,7 +12,6 @@ import { CartProvider } from './context/CartContext';
 
 
 function App() {
-  console.log(process.env);
   const product = 'Mis productos'
   
 
@@ -24,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ItemListContainer/>} />
         <Route path="/Productos" element={<ItemListContainer/>} />
+        <Route path="/Categorias" element={<Category/>} />
         <Route path="/Categorias/:categoryId" element={<Category/>} /> 
         <Route path="/Nosotros" element={<Nosotros />} /> 
         <Route path="/Contacto" element={<Contacto />} />
