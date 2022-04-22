@@ -5,17 +5,19 @@ import CartWidget from '../CartWidget';
 
 export default function NavbarReact() {
 return(
-<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-  <Container>
-  <Navbar bg="dark" variant="dark">
-    <Container>
-      <Navbar.Brand as={Link} to="/"><img  alt="Logo" src="logo1.jpg" width="100" height="100" className="d-inline-block align-top"/> 
+<Navbar collapseOnSelect expand="lg" bg="danger" variant="dark">
+  <Container className='m-0'>
+  <Navbar  className='mx-5'>
+    <Container className='m-0'>
+      <div className='myLogo'>
+      <Navbar.Brand as={Link} to="/" ><img  alt="Logo" src="logo2.jpg" width="150" height="120" className="d-inline-block align-top m-0"/> 
       </Navbar.Brand>
+      </div>
     </Container>
   </Navbar>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="me-auto">
+    <Nav className="m-auto ">
       <Nav.Link as={Link} to="/">Inicio</Nav.Link>
       <Nav.Link as={Link} to="/Categorias">Productos</Nav.Link>
       <Nav.Link as={Link} to="/Nosotros">Nosotros</Nav.Link> 

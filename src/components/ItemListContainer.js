@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
-import { getProducts } from "../data/data";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import  Carousel  from './Carousel';
+import { collection, getDocs } from "firebase/firestore";
+import {db} from "../firebase/config";
 
 
 const ItemListContainer = (props) => {
@@ -12,14 +13,26 @@ const ItemListContainer = (props) => {
     const [cargando, setCargando] = useState(false);
 
     const {categoryId} = useParams()
-    console.log(categoryId);
+    //console.log(categoryId);
     
 
     
 useEffect(() =>{
     setCargando(true)
 
-    getProducts
+//1.- Armar la referencia
+    const stockRef = collection(db,"Mi Stock")
+//2.- Llamar (async) a esa referencia
+    getDocs(stockRef)
+    .then(resp => {
+        const items = resp.docs.map((doc) => ({id: doc.id,...doc.data()}))
+        console.log(items)
+        setListaProductos(items)
+    })
+    .finally(() => { 
+        setCargando(false)
+    })
+   /* getProducts
     .then((resp) => { 
         if (categoryId){
         setListaProductos(resp.filter((prod) => prod.categoria === categoryId))
@@ -30,9 +43,7 @@ useEffect(() =>{
     .catch((error) => {
         console.log(error)
     })
-    .finally(() => { 
-        setCargando(false)
-    })
+    */
 },[categoryId])
 
 return(  

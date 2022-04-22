@@ -1,23 +1,30 @@
 import React, {useEffect, useState } from 'react'
-import { getProducts } from '../data/data'
 import ItemDetail from './ItemDetail'
 import { Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
+import { doc, getDoc } from 'firebase/firestore'
+import {db} from '../firebase/config'
 
 
 const ItemDetailContainer = () => {
     const [productDetail, setProductDetail] = useState({})
     const [loading, setLoading] = useState(false)
 
-    const {item} = useParams()
+    const {itemId} = useParams()
 
     useEffect(() => {
       setLoading(true)
-    getProducts
-    .then((resp) => setProductDetail(resp.find((products) => products.id === item)))
-    .catch((error) => console.log(error))
-    .finally(() => setLoading(false))
-    },[item] )
+
+      const docRef = doc(db,"Mi Stock", itemId)
+      getDoc(docRef)
+      .then(doc => {
+        setProductDetail({id: doc.id,...doc.data()})
+      })
+      .finally(() => { 
+        setLoading(false)
+    })
+
+    },[itemId] )
 
   return (
     <div>
