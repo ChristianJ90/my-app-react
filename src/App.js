@@ -12,8 +12,6 @@ import { CartProvider } from './context/CartContext';
 
 
 function App() {
-  const product = 'Mis productos'
-  
 
   return (
     <div className="App">
@@ -28,7 +26,7 @@ function App() {
         <Route path="/Nosotros" element={<Nosotros />} /> 
         <Route path="/Contacto" element={<Contacto />} />
         <Route path="/MyCart" element={<Cart />} />
-        <Route path="/Detalle/:item" element={<ItemDetailContainer productos = {product}/>} />
+        <Route path="/Detalle/:itemId" element={<ItemDetailContainer/>} />
         <Route path="*" element={<Navigate to={"/"}/>} /> 
       </Routes> 
       </CartProvider>  

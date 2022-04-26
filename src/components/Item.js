@@ -1,20 +1,21 @@
-import * as React from 'react';
+import  React from 'react';
 import { Card, ListGroupItem, Button, Nav} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
-const Item = ({products}) => {
+const Item = ({prod}) => {
+  const {id,imagen, nombre, categoria, descripcion, precio,stock} = prod
   return (
  <div className="mx-4"><Card style={{ width: '18rem' }}>
- <Card.Img variant="top" src={products.imagen} />
+ <Card.Img variant="top" src={imagen} />
  <Card.Body>
-   <Card.Title>{products.nombre}</Card.Title>
-   <ListGroupItem>{products.categoria}</ListGroupItem>
-   <Card.Text>{products.descripcion}</Card.Text>
-   <ListGroupItem>${products.precio}</ListGroupItem>
-   <Card.Text>Stock: {products.stock}</Card.Text>
-   <Nav.Link as={Link} to={`/Detalle/${products.id}`}><Button className="btn btn-success my-2" >Ver detalles</Button></Nav.Link> 
+   <Card.Title>{nombre}</Card.Title>
+   <ListGroupItem>{categoria}</ListGroupItem>
+   <Card.Text>{descripcion}</Card.Text>
+   <ListGroupItem>${precio}</ListGroupItem>
+   <Card.Text>Stock: {stock}</Card.Text>
+   <Nav.Link as={Link} to={`/Detalle/${id}`}><Button className="btn btn-success my-2" >Ver detalles</Button></Nav.Link> 
  </Card.Body>
-</Card></div>
+  </Card></div>
   );
 }
 export default Item

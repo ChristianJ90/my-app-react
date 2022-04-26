@@ -75,8 +75,8 @@ const products = [
 
 ];
 
-export const getProducts = new Promise ((resolve, reject ) =>{
-    let condiction = true;
-     condiction ? setTimeout(() => { resolve(products)},3000 ) : reject("Error")
-})
-console.log(products);
+//export const getProducts = new Promise ((resolve, reject ) =>{
+    //let condiction = true;
+     //condiction ? setTimeout(() => { resolve(products)},3000 ) : reject("Error")
+//})
+//console.log(products);

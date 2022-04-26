@@ -1,7 +1,7 @@
 import *as React from 'react'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import { useContext } from "react";
-import { CartContext } from './context/CartContext';
+import { CartContext } from '../context/CartContext';
 
 const CartWidget = () => {
 
