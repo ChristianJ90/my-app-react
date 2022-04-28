@@ -10,8 +10,7 @@ return(
   <Navbar  className='mx-5'>
     <Container className='m-0'>
       <div className='myLogo'>
-      <Navbar.Brand as={Link} to="/" ><img  alt="Logo" src="logo1.jpg" width="150" height="120" className="d-inline-block align-top m-0"/> 
-      </Navbar.Brand>
+      <Navbar.Brand as={Link} to="/" className=''>Carniceria</Navbar.Brand>
       </div>
     </Container>
   </Navbar>
@@ -24,7 +23,7 @@ return(
       <Nav.Link as={Link} to="/Contacto">Contacto</Nav.Link> 
     </Nav>
     <Nav>
-    <Nav.Link as={Link} to='/MyCart' >Carrito<CartWidget/></Nav.Link>
+    <Nav.Link as={Link} to='/MyCart' ><CartWidget/></Nav.Link>
     </Nav>
   </Navbar.Collapse>
   </Container>

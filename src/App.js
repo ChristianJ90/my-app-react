@@ -3,13 +3,13 @@ import './App.css';
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
-import Nosotros from './components/Nosotros';
-import Contacto from './components/Contacto';
+import Nosotros from './routes/Nosotros';
+import Contacto from './routes/Contacto';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import  Category  from './components/Category';
+import  Category  from './routes/Category';
 import Cart from './components/Cart';
 import { CartProvider } from './context/CartContext';
-
+import  Home  from './routes/Home';
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
       <Navbar/>
      
       <Routes>
-        <Route path="/" element={<ItemListContainer/>} />
+        <Route path="/" element={<Home/>} />
         <Route path="/Productos" element={<ItemListContainer/>} />
         <Route path="/Categorias" element={<Category/>} />
         <Route path="/Categorias/:categoryId" element={<Category/>} /> 
