@@ -4,9 +4,10 @@ import Item from "./Item";
 const ItemList = ({stock}) => {
 
     return(
+        // {stock.map((Item) => (
+            //<Item {...Item} key = {Item.id} />))}
         <div className="d-flex flex-wrap">
-            {stock.map((Item) => (
-            <Item {...Item} key = {Item.id} />))}
+           
         </div>
     );
 };
