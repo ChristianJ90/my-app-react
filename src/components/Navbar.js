@@ -1,7 +1,7 @@
 import *as React from 'react';
 import { Link } from "react-router-dom";
 import {Navbar,Nav,Container} from 'react-bootstrap';
-import CartWidget from './CartWidget';
+import CartWidget from '../routes/CartWidget';
 
 export default function NavbarReact() {
 return(
@@ -18,7 +18,7 @@ return(
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="m-auto ">
       <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-      <Nav.Link as={Link} to="/Categorias">Productos</Nav.Link>
+      <Nav.Link as={Link} to="/Productos">Productos</Nav.Link>
       <Nav.Link as={Link} to="/Nosotros">Nosotros</Nav.Link> 
       <Nav.Link as={Link} to="/Contacto">Contacto</Nav.Link> 
     </Nav>

@@ -3,7 +3,7 @@ import ItemList from "./ItemList";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import {db} from "../firebase/config";
+import db from "../firebase/config";
 
 const ItemListContainer = () => {
 
@@ -32,7 +32,9 @@ useEffect(() =>{
 },[categoryId])
 
 return(  
-    <div>       
+    
+    <div>    
+           
         {cargando ? <div><Spinner animation="border" role="status">
         <span className="visually-hidden">Loading...</span>
         </Spinner></div> : <ItemList listaProductos = {listaProductos} />       

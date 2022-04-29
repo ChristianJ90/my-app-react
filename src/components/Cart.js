@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Cart = () => {
@@ -35,6 +35,7 @@ const Cart = () => {
       <h3>Total: $ {cartTotal()}</h3>
       <hr/>
       <button className='btn btn-outline-danger m-2' onClick={emptyCart} >Vaciar carrito</button>
+      <Link to = '/Checkout' className='btn btn-outline-danger m-2'>Ir a pagar</Link>
       <button className="btn btn-outline-success" onClick={ handleNavigate}>Atras</button>
     </div>
   )

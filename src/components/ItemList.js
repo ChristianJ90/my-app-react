@@ -1,11 +1,12 @@
 import React from "react";
 import Item from "./Item";
 
-const ItemList = ({listaProductos}) => {
+const ItemList = ({stock}) => {
 
     return(
         <div className="d-flex flex-wrap">
-            {listaProductos.map((prod) => <Item prod ={prod} key = {prod.id} />)}
+            {stock.map((Item) => (
+            <Item {...Item} key = {Item.id} />))}
         </div>
     );
 };
