@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 import db from "../firebase/config";
 
 const ItemListContainer = () => {
@@ -17,8 +17,8 @@ useEffect(() =>{
     setCargando(true)
 
 //1.- Armar la referencia
-    const stockRef = collection(db,"Mi Stock")
-    const q = categoryId ? query(stockRef, where('categoria','==', categoryId)): stockRef
+    const stockRef = collection(db,"stock")
+    const q = categoryId ? query(stockRef, where('categoria','==', categoryId), orderBy("nombre")):query(stockRef, orderBy("nombre")) 
 //2.- Llamar (async) a esa referencia
     getDocs(q)
     .then(resp => {

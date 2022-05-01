@@ -9,14 +9,17 @@ import  Category  from './routes/Category';
 import Cart from './components/Cart';
 import { CartProvider } from './context/CartContext';
 import  Home  from './routes/Home';
-import {products} from './data/data';
+import Checkout from './components/Checkout';
+/*import {products} from './data/data';
 import db from './firebase/config';
 import { addDoc, collection } from 'firebase/firestore';
-import { fileUpload } from './firebase/fileUpload';
-import Checkout from './components/Checkout';
+import { fileUpload } from './firebase/fileUpload';*/
+
 
 function App() {
- 
+
+ /*console.log(process.env);
+
   const uploadCharacters = () => {
     
     products.forEach( async el => {
@@ -24,14 +27,14 @@ function App() {
      await addDoc(collection(db, "stock"),{ ...el, imagen: imgURL }) 
     });
 
-  }
+  }*/
 
   return (
     <div className="App">
       <CartProvider>
       <Navbar/>
      
-     <button onClick={uploadCharacters}>Subir Stock</button>
+     {/*<button onClick={uploadCharacters}>Subir Stock</button>*/}
 
       <Routes>
         <Route path="/" element={<Home/>} />

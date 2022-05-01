@@ -14,7 +14,7 @@ const Cart = () => {
 
   return (
     <div >
-      {cart == 0 ? <h1>Sin productos en el carrito</h1> : <h1>Tu Compra</h1> }     
+      {cart <= 0 ? <h1>Sin productos en el carrito</h1> : <h1>Tu Compra</h1> }     
       <hr/>
       {cart.map((item) => (
         <div key={item.id}>
@@ -24,7 +24,7 @@ const Cart = () => {
           <p>{item.descripcion}</p>
           <p>Cantidad: {item.cantidad}{item.unidad}</p>
           <h5>Precio: ${item.precio * item.cantidad}</h5>  
-          { item.cantidad == item.stock ?  <h1>Sin stock</h1> : <h6>Aun quedan {item.stock - item.cantidad}</h6>}        
+          {Number(item.stock) === Number(item.cantidad) ? <h1>Sin stock</h1>  :  <h6>Aun quedan {item.stock - item.cantidad}</h6>}        
           <br/>
           <button className='btn btn-danger m-2' onClick={() => removeItem(item.id)} >
             <DeleteForeverIcon/>Eliminar producto</button>

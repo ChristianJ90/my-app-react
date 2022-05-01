@@ -2,8 +2,8 @@ import  React from 'react';
 import { Card, ListGroupItem, Button, Nav} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
-const Item = ({Item}) => {
-  const {id,imagen, nombre, categoria, descripcion, precio,stock} = Item
+const Item = ({id,imagen, nombre, categoria, descripcion, precio,stock}) => {
+  /*const {id,imagen, nombre, categoria, descripcion, precio,stock} = Item*/
   return (
  <div className="mx-4"><Card style={{ width: '18rem' }}>
  <Card.Img variant="top" src={imagen} />

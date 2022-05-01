@@ -5,7 +5,7 @@ import Select from './Select'
 import { CartContext } from '../context/CartContext'
 import { Nav } from 'react-bootstrap'
 
-const ItemDetail =({productDetail}) => {
+const ItemDetail =({id,imagen, nombre, categoria, descripcion, precio,stock}) => {
 
   const options =[
     {value: 'kg', text: 'Kg' },
@@ -14,7 +14,7 @@ const ItemDetail =({productDetail}) => {
 
   const {cart ,addItem ,isInCart} = useContext(CartContext)
   console.log(cart);
-  const {id,imagen, nombre, categoria, descripcion, precio,stock} = productDetail
+  /*const {id,imagen, nombre, categoria, descripcion, precio,stock} = productDetail*/
 
  const navigate = useNavigate()
   const handleNavigate = () => {
