@@ -50,7 +50,7 @@ const ItemDetail =({id,imagen, nombre, categoria, descripcion, precio,stock}) =>
         <small>Stock: {stock}</small><br/>
         <Select options={options} onSelect={setUnidad}/><br/><br/>
         {! isInCart(id) ?  <ItemCount max={stock} cantidad={cantidad} setCantidad={setCantidad} onAdd={agregarAlCarrito}/>
-        :<button className='btn btn-outline-primary'><Nav.Link as={Link} to='/MyCart' >Terminar compra</Nav.Link></button>
+        :<button className='btn btn-outline-primary'><Nav.Link as={Link} to='/MyCart' >Agregar al carrito</Nav.Link></button>
         } 
        
         <br/><br/> 
