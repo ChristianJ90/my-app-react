@@ -1,5 +1,5 @@
 import React from 'react'
-import ItemListContainer from '../components/ItemListContainer';
+import ItemListContainer from '../components/ItemListContainer/ItemListContainer';
 import { Nav, NavDropdown} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap'

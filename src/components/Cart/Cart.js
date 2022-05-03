@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
-import { CartContext } from '../context/CartContext'
+import React, { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
-    const {cart, cartTotal, emptyCart, removeItem} = useContext(CartContext)
+  const {cart, cartTotal, emptyCart, removeItem} = useContext(CartContext)
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
   const handleNavigate = () => {
     navigate(-1)
   }
@@ -29,7 +29,6 @@ const Cart = () => {
           <button className='btn btn-danger m-2' onClick={() => removeItem(item.id)} >
             <DeleteForeverIcon/>Eliminar producto</button>
           <hr/>
-
         </div>
       ))}
       <h3>Total: $ {cartTotal()}</h3>

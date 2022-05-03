@@ -1,6 +1,6 @@
 import React from 'react'
-import  Carousel  from '../components/Carousel';
-import ItemListContainer from '../components/ItemListContainer';
+import  Carousel  from '../components/Carousel/Carousel';
+import ItemListContainer from '../components/ItemListContainer/ItemListContainer';
 
 const Home = () => {
   return (
