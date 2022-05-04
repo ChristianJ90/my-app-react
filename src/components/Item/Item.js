@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const Item = ({id,imagen, nombre, categoria, descripcion, precio,stock}) => {
 
   return (
-    <div className="d-flex mx-5 my-4">
-      <Card style={{ width: '17rem' }}>
+    <div className="d-flex mx-4 my-3">
+      <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={imagen} />
         <Card.Body>
         <Card.Title>{nombre}</Card.Title>

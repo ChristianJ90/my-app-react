@@ -19,17 +19,17 @@ const Cart = () => {
         <h2>Tu carrito esta vacio</h2>
         <ProductionQuantityLimitsIcon style={{ width: '30rem' , height: '28rem' }}/>
         </div>
-      : <div><h1>Tu Compra</h1>    
+      : <div><h3>Tu Compra</h3>    
       <hr/>
       {cart.map((item) => (
         <div key={item.id}>
-          <img class="img-fluid img-thumbnail rounded float-start " src={item.imagen} alt={item.nombre} />
-          <h4>{item.nombre}</h4>
+          <img className="img-fluid img-thumbnail rounded float-start " src={item.imagen} alt={item.nombre} />
+          <h5>{item.nombre}</h5>
           <h6>{item.categoria}</h6>
           <p>{item.descripcion}</p>
           <p>Cantidad: {item.cantidad}{item.unidad}</p>
           <h5>Precio: ${item.precio * item.cantidad}</h5>  
-          {Number(item.stock) === Number(item.cantidad) ? <h1>Sin stock</h1>  :  <h6>Aun quedan {item.stock - item.cantidad}</h6>}        
+          {Number(item.stock) === Number(item.cantidad) ? <h3>Al concretar tu compra este producto quedara sin stock</h3>  :  <h6>Aun quedan {item.stock - item.cantidad}</h6>}        
           <br/>
           <button className='btn btn-danger m-2' onClick={() => removeItem(item.id)} >
             <DeleteForeverIcon/>Eliminar producto</button>

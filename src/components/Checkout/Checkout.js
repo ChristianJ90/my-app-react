@@ -12,11 +12,14 @@ import TextField from '@mui/material/TextField';
 
 const Checkout = () => {
 
+   
+
     const {cart, cartTotal,emptyCart} = useContext(CartContext)
     const [orderId, setOrderId]= useState(null)
 
     const {values, handleInputChange, resetForm} = useForm({
         nombre: '',
+        dni: '',
         email: '',
         telf: ''
     })
@@ -28,24 +31,22 @@ const Checkout = () => {
             items : cart,
             total : cartTotal(),
             comprador : {...values},
-            fyh: Timestamp.fromDate(new Date())
+            fyh: Timestamp.fromDate(new Date())         
         
-    }
+        }
+  
+        //batch
+        const batch = writeBatch(db)
+        const ordenesRef = collection(db, 'ordenes')
+        const productosRef = collection(db, 'stock')
 
-    //batch
-    const batch = writeBatch(db)
-    const ordenesRef = collection(db, 'ordenes')
-    const productosRef = collection(db, 'stock')
-    //query de busquda
-    const q = query(productosRef, where(documentId(), 'in', cart.map((item) => item.id)))
+        const q = query(productosRef, where(documentId(), 'in', cart.map((item) => item.id)))
 
-    //traigo la coleccion
-    const productos = await getDocs(q)
+        const productos = await getDocs(q)
 
-    const outOfStock =[]
+        const outOfStock =[]
 
-    // itero para comparar y preparar batch
-    productos.docs.forEach((doc) => {
+        productos.docs.forEach((doc) => {
         const itemInCart = cart.find((item) => item.id === doc.id)
 
         if (doc.data().stock >= itemInCart.cantidad) {
@@ -65,7 +66,6 @@ const Checkout = () => {
                     setOrderId(doc.id)
                     emptyCart()
 
-               // Navigate(`/orders/${doc.id}`)
                 })
             })
         }else {
@@ -73,12 +73,12 @@ const Checkout = () => {
           alert('no hay stock de este item')
         }
     }
-
+  
     if (orderId) {
-        return <div >
+        return <div className=' py-5  navbar-fixed-bottom'>
             <h2>Tu compra fue exitosa</h2>
             <hr/>
-            <h4>Numero de orden: {orderId} </h4>
+            <h5>Numero de orden: {orderId} </h5>                      
             <Link to="/" className="btn btn-success">Volver al inicio</Link>
         </div>
     }
@@ -89,17 +89,61 @@ const Checkout = () => {
 
     return (
         <div>
-            <h1>Checkout</h1>
-            <form onSubmit={handleSubmit}>
-            <TextField fullWidth sx={{ m: 1, width: '50%' }} type={'text'} label="Nombre y Apellido" value={values.nombre} onChange={handleInputChange}  placeholder='Nombre y Apellido' color="primary" focused />
-            <TextField fullWidth sx={{ m: 1, width: '50%' }} type={'text'} label="Nombre y Apellido" value={values.nombre} onChange={handleInputChange}  placeholder='Nombre y Apellido' color="primary" focused />
-            <TextField fullWidth sx={{ m: 1, width: '50%' }} type={'text'} label="Nombre y Apellido" value={values.nombre} onChange={handleInputChange}  placeholder='Nombre y Apellido' color="primary" focused />
-            <TextField fullWidth sx={{ m: 1, width: '50%' }} type={'email'} label="Correo Electronico" value={values.email} onChange={handleInputChange}placeholder='Email' color="primary" focused />
-            <TextField fullWidth sx={{ m: 1, width: '50%' }} type={'tel'} label="Telefono" value={values.telf} onChange={handleInputChange}placeholder='Telefono' color="primary" focused /><br/>
-            <Button className='mx-3 my-4' variant="contained" type='submit' endIcon={<SendIcon />}>Enviar</Button>
-            <Button className='mx-3 my-4' variant="outlined"  color="success" onClick={resetForm} startIcon={<DeleteIcon />}>Vaciar</Button>
-            </form>
+            <h2 className='my-4'>Checkout</h2><br/>
 
+            <form onSubmit= {handleSubmit}>
+            <TextField           
+            fullWidth sx={{ m: 1, width: '50%' }}
+             type={'text'} 
+             label="Nombre y Apellido" 
+             value={values.nombre} 
+             name="nombre"
+             onChange= {handleInputChange}                 
+             placeholder='Nombre y Apellido'
+              color="primary" />
+
+            <TextField 
+            fullWidth 
+            sx={{ m: 1, width: '50%' }} 
+            type={'text'} 
+            label="DNI" 
+            value={values.dni} 
+            name="dni"
+            onChange={handleInputChange} 
+             placeholder='DNI' 
+             color="primary" />
+
+            <TextField 
+            fullWidth 
+            sx={{ m: 1, width: '50%' }} 
+            type={'email'} 
+            label="Correo Electronico" 
+            value={values.email}
+            name="email" 
+            onChange={handleInputChange}
+            placeholder='Email' 
+            color="primary"/>
+
+            <TextField 
+            fullWidth 
+            sx={{ m: 1, width: '50%' }} 
+            type={'tel'} 
+            label="Telefono" 
+            name="telf"
+            value={values.telf} 
+            onChange={handleInputChange}
+            placeholder='Telefono' 
+            color="primary" /><br/>
+
+        { values.telf && values.nombre && values.email && values.dni? 
+            <Button className='mx-3 my-4' variant="contained" type='submit' endIcon={<SendIcon />}>Enviar</Button>   
+            :<h5>Complete campos</h5> 
+          
+        }
+
+            
+            <Button className='mx-3 my-4' variant="outlined"  color="success" onClick={resetForm} startIcon={<DeleteIcon />}>Vaciar</Button> 
+            </form> 
         </div>
     )
 }

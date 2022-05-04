@@ -9,7 +9,6 @@ const ItemDetail =({id,imagen, nombre, categoria, descripcion, precio,stock}) =>
 
   const options =[
     {value: 'kg', text: 'Kg' },
-    {value: 'caja', text: 'Caja' },
   ]
 
   const {cart ,addItem ,isInCart} = useContext(CartContext)
@@ -40,10 +39,10 @@ const ItemDetail =({id,imagen, nombre, categoria, descripcion, precio,stock}) =>
   
   return (
     <div>
-      <h2>Detalle de Productos</h2>
+      <h3>Detalle de Productos</h3>
       <hr/>
-      <img style={{ width: '25rem' , height: '20rem' }} class="img-fluid img-thumbnail rounded float-start " src={imagen} alt={nombre} />
-      <h3> {nombre}</h3>            
+      <img style={{ width: '25rem' , height: '20rem' }} className="img-fluid img-thumbnail rounded float-start " src={imagen} alt={nombre} />
+      <h4> {nombre}</h4>            
       <h6>{categoria}</h6>
       <p>{descripcion}</p>
       <p>Precio ${precio}</p>

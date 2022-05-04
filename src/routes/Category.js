@@ -53,10 +53,10 @@ const Category = () => {
       </Carousel.Caption>
     </Carousel.Item>
   </Carousel>  
-      <div className="d-flex align-top mx-5 justify-content-betwen">
-       <Nav.Link as={Link} to={`/Productos/Categoria/Carne`}><img  alt='Carne' width="200" height="200" src="Banner/vacuno.jpg"/></Nav.Link>
-        <Nav.Link as={Link} to={`/Productos/Categoria/Pollo`}><img  alt='Pollo' width="200" height="200" src="Banner/pollo.jpg"/></Nav.Link>
-      <Nav.Link as={Link} to={`/Productos/Categoria/Cerdo`}><img  alt='Cerdo' width="200" height="200" src="Banner/cerdo.jpg"/></Nav.Link>
+      <div className="d-flex align-top mx-5 justify-content-between">
+       <Nav.Link className='mx-3' as={Link} to={`/Productos/Categoria/Carne`}><img  alt='Carne' width="250" height="200" src="Banner/vacuno.jpg"/></Nav.Link>
+        <Nav.Link className='mx-3' as={Link} to={`/Productos/Categoria/Pollo`}><img  alt='Pollo' width="250" height="200" src="Banner/pollo.jpg"/></Nav.Link>
+      <Nav.Link className='mx-3' as={Link} to={`/Productos/Categoria/Cerdo`}><img  alt='Cerdo' width="250" height="200" src="Banner/cerdo.jpg"/></Nav.Link>
       </div>
       <NavDropdown.Divider />
     <h1>Productos</h1>
