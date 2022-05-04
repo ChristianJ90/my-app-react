@@ -5,6 +5,10 @@ import { getDocs, collection, documentId, addDoc, Timestamp, writeBatch, query, 
 import db from '../../firebase/config';
 import { Navigate,Link } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import TextField from '@mui/material/TextField';
 
 const Checkout = () => {
 
@@ -87,12 +91,15 @@ const Checkout = () => {
         <div>
             <h1>Checkout</h1>
             <form onSubmit={handleSubmit}>
-            <input className='form-control my-2' type={'text'} name='nombre' value={values.nombre} onChange={handleInputChange}  placeholder='Nombre y Apellido'/>
-            <input className='form-control my-2' type={'email'} name='email' value={values.email} onChange={handleInputChange}placeholder='Email'/>
-            <input className='form-control my-2' type={'tel'} name='telf' value={values.telf} onChange={handleInputChange}placeholder='Telefono'/>
-            <button className='btn btn-primary' type='submit'>Enviar</button>
+            <TextField fullWidth sx={{ m: 1, width: '50%' }} type={'text'} label="Nombre y Apellido" value={values.nombre} onChange={handleInputChange}  placeholder='Nombre y Apellido' color="primary" focused />
+            <TextField fullWidth sx={{ m: 1, width: '50%' }} type={'text'} label="Nombre y Apellido" value={values.nombre} onChange={handleInputChange}  placeholder='Nombre y Apellido' color="primary" focused />
+            <TextField fullWidth sx={{ m: 1, width: '50%' }} type={'text'} label="Nombre y Apellido" value={values.nombre} onChange={handleInputChange}  placeholder='Nombre y Apellido' color="primary" focused />
+            <TextField fullWidth sx={{ m: 1, width: '50%' }} type={'email'} label="Correo Electronico" value={values.email} onChange={handleInputChange}placeholder='Email' color="primary" focused />
+            <TextField fullWidth sx={{ m: 1, width: '50%' }} type={'tel'} label="Telefono" value={values.telf} onChange={handleInputChange}placeholder='Telefono' color="primary" focused /><br/>
+            <Button className='mx-3 my-4' variant="contained" type='submit' endIcon={<SendIcon />}>Enviar</Button>
+            <Button className='mx-3 my-4' variant="outlined"  color="success" onClick={resetForm} startIcon={<DeleteIcon />}>Vaciar</Button>
             </form>
-            <button className='btn btn-success' onClick={resetForm}>Vaciar</button>
+
         </div>
     )
 }

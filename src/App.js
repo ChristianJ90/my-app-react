@@ -29,7 +29,7 @@ function App() {
         <Route path="/Checkout" element={<Checkout />} />      
         <Route path="*" element={<Navigate to={"/"}/>} /> 
       </Routes> 
-      <Footer/>
+      <Footer />
       </CartProvider>  
     </div>
   )

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Link, useNavigate } from 'react-router-dom';
-
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 
 const Cart = () => {
   const {cart, cartTotal, emptyCart, removeItem} = useContext(CartContext)
@@ -14,11 +14,16 @@ const Cart = () => {
 
   return (
     <div >
-      {cart <= 0 ? <h1>Sin productos en el carrito</h1> : <h1>Tu Compra</h1> }     
+      {cart <= 0 ?  
+      <div>
+        <h2>Tu carrito esta vacio</h2>
+        <ProductionQuantityLimitsIcon style={{ width: '30rem' , height: '28rem' }}/>
+        </div>
+      : <div><h1>Tu Compra</h1>    
       <hr/>
       {cart.map((item) => (
         <div key={item.id}>
-          <img src={item.imagen} alt={item.nombre} />
+          <img class="img-fluid img-thumbnail rounded float-start " src={item.imagen} alt={item.nombre} />
           <h4>{item.nombre}</h4>
           <h6>{item.categoria}</h6>
           <p>{item.descripcion}</p>
@@ -36,6 +41,8 @@ const Cart = () => {
       <button className='btn btn-outline-danger m-2' onClick={emptyCart} >Vaciar carrito</button>
       <Link to = '/Checkout' className='btn btn-outline-danger m-2'>Ir a pagar</Link>
       <button className="btn btn-outline-success" onClick={ handleNavigate}>Atras</button>
+      </div>
+      }
     </div>
   )
 }

@@ -12,7 +12,7 @@ const Category = () => {
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src="Productos\bannerVacuno.jpg"
+        src="Banner\bannerVacuno.jpg"
         alt="First slide"
       />
       <Carousel.Caption>
@@ -22,7 +22,7 @@ const Category = () => {
      <Carousel.Item>
       <img
         className="d-block w-100"
-        src="Productos\bannerPollo.jpg"
+        src="Banner\bannerPollo.jpg"
         alt="Second slide"
       />
   
@@ -33,7 +33,7 @@ const Category = () => {
       <Carousel.Item>
       <img
         className="d-block w-100"
-        src="Productos\bannerCerdo.jpg"
+        src="Banner\bannerCerdo.jpg"
         alt="Third slide"
       />
   
@@ -44,7 +44,7 @@ const Category = () => {
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src="Productos\bannerParrilleros.jpg"
+        src="Banner\bannerParrilleros.jpg"
         alt="Third slide"
       />
   
@@ -53,12 +53,12 @@ const Category = () => {
       </Carousel.Caption>
     </Carousel.Item>
   </Carousel>  
-        <div className="d-flex align-top ">
-        <Nav.Link as={Link} to={`/Productos/Categoria/Carne`}><img  alt='Carne' width="200" height="200" src='../Productos/Carne/vacuno.JPG'/></Nav.Link>
-    <Nav.Link as={Link} to={`/Productos/Categoria/Pollo`}><img  alt='Pollo' width="200" height="200" src='../Productos/Pollo/pollo.JPG'/></Nav.Link>
-    <Nav.Link as={Link} to={`/Productos/Categoria/Cerdo`}><img  alt='Cerdo' width="200" height="200" src='../Productos/Cerdo/cerdo.JPG'/></Nav.Link>
-    </div>
-    <NavDropdown.Divider />
+      <div className="d-flex align-top mx-5 justify-content-betwen">
+       <Nav.Link as={Link} to={`/Productos/Categoria/Carne`}><img  alt='Carne' width="200" height="200" src="Banner/vacuno.jpg"/></Nav.Link>
+        <Nav.Link as={Link} to={`/Productos/Categoria/Pollo`}><img  alt='Pollo' width="200" height="200" src="Banner/pollo.jpg"/></Nav.Link>
+      <Nav.Link as={Link} to={`/Productos/Categoria/Cerdo`}><img  alt='Cerdo' width="200" height="200" src="Banner/cerdo.jpg"/></Nav.Link>
+      </div>
+      <NavDropdown.Divider />
     <h1>Productos</h1>
        <ItemListContainer />
        </div>

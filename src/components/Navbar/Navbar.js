@@ -18,10 +18,10 @@ export default function NavbarReact() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="m-auto ">
-            <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-            <Nav.Link as={Link} to="/Productos">Productos</Nav.Link>
-            <Nav.Link as={Link} to="/Nosotros">Nosotros</Nav.Link> 
-            <Nav.Link as={Link} to="/Contacto">Contacto</Nav.Link> 
+            <Nav.Link className="mx-4" as={Link} to="/"><strong>Inicio</strong></Nav.Link>
+            <Nav.Link className="mx-4" as={Link} to="/Productos"><strong>Productos</strong></Nav.Link>
+            <Nav.Link className="mx-4" as={Link} to="/Nosotros"><strong>Nosotros</strong></Nav.Link> 
+            <Nav.Link className="mx-4" as={Link} to="/Contacto"><strong>Contacto</strong></Nav.Link> 
           </Nav>
           <Nav>
             <Nav.Link as={Link} to='/MyCart' ><CartWidget/></Nav.Link>
